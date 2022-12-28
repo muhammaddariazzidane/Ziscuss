@@ -10,6 +10,7 @@ import BtnSend from "./BtnSend";
 export default function Chat() {
   const [messages, setMessages] = useState([]);
   const [user] = useAuthState(auth);
+  const scroll = useRef();
 
   useEffect(() => {
     const q = query(collection(db, "messages"), orderBy("timestamp"));
@@ -39,7 +40,8 @@ export default function Chat() {
           return (
             <>
               <Message key={message.id} message={message} />
-              <BtnSend />
+              <BtnSend scroll={scroll} />
+              <span ref={scroll}></span>
               {/* <div className="chat chat-start" key={m.id}>
               <div className="chat-image avatar">
                 <div className="w-10 rounded-full">

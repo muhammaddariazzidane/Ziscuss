@@ -4,7 +4,7 @@ import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { auth, db } from "../firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 
-export default function BtnSend() {
+export default function BtnSend({ scroll }) {
   const [input, setInput] = useState("");
   const [user] = useAuthState(auth);
 
@@ -23,10 +23,11 @@ export default function BtnSend() {
       timestamp: serverTimestamp(),
     });
     setInput("");
+    scroll.current.scrollIntoView({ behavior: "smooth" });
   };
   return (
     <>
-      <div className="max-w-[1080px] w-full fixed bottom-0">
+      <div className="max-w-[1080px] w-full pt-1 px-3 lg:pb-1 pb-1 lg:p-0 bg-white fixed bottom-0">
         <form onSubmit={sendMessage}>
           <div className="form-control">
             <div className="input-group">

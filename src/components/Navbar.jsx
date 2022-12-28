@@ -20,7 +20,7 @@ export default function Navbar() {
               </div>
             </label>
             <ul tabIndex={0} className="-mt-0 mr-5 p-2 shadow-xl text-white menu menu-compact dropdown-content bg-indigo-600 rounded-tr-none rounded-b-full rounded-tl-full w-32">
-              {user ? <BtnLogout /> : <BtnLogin />}
+              <BtnLogout />
             </ul>
           </div>
         </div>
