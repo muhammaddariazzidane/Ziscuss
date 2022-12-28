@@ -31,8 +31,8 @@ export default function BtnSend({ scroll }) {
         <form onSubmit={sendMessage}>
           <div className="form-control">
             <div className="input-group">
-              <input value={input} onChange={(e) => setInput(e.target.value)} type="text" placeholder="Type here" className="input  input-success focus:outline-none w-full" />
-              <button className="btn btn-success text-white">
+              <input value={input} onChange={(e) => setInput(e.target.value)} type="text" placeholder="Type here" className="input ring-1 ring-deep-purple-accent-400 focus:outline-none outline-none w-full" />
+              <button className="btn bg-deep-purple-accent-400 text-white">
                 <AiOutlineSend size={30} />
               </button>
             </div>

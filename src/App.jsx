@@ -9,14 +9,10 @@ import BtnLogin from "./components/BtnLogin";
 function App() {
   const style = {
     Container: `max-w-[1080px] text-center mx-auto`,
-    Body: `flex flex-col h-auto mb-12 relative mt-20`,
+    Body: `flex flex-col h-auto mb-14 relative mt-20`,
   };
   const [user] = useAuthState(auth);
-  console.log(user);
-  const GoogleSignIn = () => {
-    const provider = new GoogleAuthProvider();
-    signInWithRedirect(auth, provider);
-  };
+
   return (
     <div className={style.Container}>
       {user ? (
@@ -28,7 +24,7 @@ function App() {
         </>
       ) : (
         <div className="w-full bg-white">
-          <div className="max-w-sm w-full -mt-12 mx-auto flex items-center h-screen">
+          <div className="max-w-sm w-full -mt-20 lg:-mt-12 mx-auto flex items-center h-screen">
             <div className="mx-auto">
               <img src="/logo.jpg" alt="/" />
               <BtnLogin />

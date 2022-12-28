@@ -20,21 +20,11 @@ export default function Chat() {
         messages.push({ ...doc.data(), id: doc.id });
       });
       setMessages(messages);
-      // console.log(user.displayName, "ini chat");
     });
     return () => unsubscribe();
   }, []);
   return (
     <>
-      {/* {messages.map((mes) => {
-        return (
-          <>
-            <div key={mes.id}>
-              <p className="py-96 bg-red-600 w-full text-6xl font-bold">{mes.text}</p>
-            </div>
-          </>
-        );
-      })} */}
       {messages &&
         messages.map((message) => {
           return (
@@ -42,15 +32,6 @@ export default function Chat() {
               <Message key={message.id} message={message} />
               <BtnSend scroll={scroll} />
               <span ref={scroll}></span>
-              {/* <div className="chat chat-start" key={m.id}>
-              <div className="chat-image avatar">
-                <div className="w-10 rounded-full">
-                  <img src="https://placeimg.com/192/192/people" />
-                </div>
-              </div>
-             
-              <div className="chat-bubble chat-bubble-secondary">{m.text}</div>
-            </div> */}
             </>
           );
         })}
