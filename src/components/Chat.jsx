@@ -25,7 +25,7 @@ export default function Chat() {
   }, []);
   return (
     <>
-      {messages &&
+      {messages.length > 0 ? (
         messages.map((message) => {
           return (
             <>
@@ -34,7 +34,23 @@ export default function Chat() {
               <span ref={scroll}></span>
             </>
           );
-        })}
+        })
+      ) : (
+        <>
+          <BtnSend scroll={scroll} />
+          <span ref={scroll}></span>
+        </>
+      )}
+      {/* {messages &&
+        messages.map((message) => {
+          return (
+            <>
+              <Message key={message.id} message={message} />
+              <BtnSend scroll={scroll} />
+              <span ref={scroll}></span>
+            </>
+          );
+        })} */}
     </>
   );
 }
